@@ -14,11 +14,13 @@ const Home = async () => {
           <div className="flex flex-col justify-center">
             <p className="small-text">
               Smart Shopping Starts Here:
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <Image
                 src="/assets/icons/arrow-right.svg"
                 alt="arrow-right"
-                width={16}
-                height={16}
+                height={0}
+                width={0}
+                style={{ width: '16px', height: "auto" }}
               />
             </p>
 
