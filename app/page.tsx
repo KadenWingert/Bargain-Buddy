@@ -20,13 +20,13 @@ const Home = async () => {
                 alt="arrow-right"
                 height={0}
                 width={0}
-                style={{ width: '16px', height: "auto" }}
+                style={{ width: '16px', height: "auto"}}
               />
             </p>
 
             <h1 className="head-text">
               Unleash the Power of
-              <span className="text-primary"> Bargain Buddy</span>
+              <span className="text-primary-green"> Bargain Buddy</span>
             </h1>
 
             <p className="mt-6">
