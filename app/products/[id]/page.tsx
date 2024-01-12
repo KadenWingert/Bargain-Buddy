@@ -13,11 +13,8 @@ type Props = {
 }
 
 const ProductDetails = async ({ params: { id } }: Props) => {
-    const product: Product = await getProductById(id);
-    // console.log("PRODUCT URL", product.url);
-    // console.log("PRODUCT Review count", product.reviewsCount);
-    // console.log("PRODUCT URL TEST");
 
+    const product: Product = await getProductById(id);
 
     if (!product) redirect('/')
 
@@ -132,21 +129,25 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
                     <div className="my-7 flex flex-col gap-5">
                         <div className="flex gap-5 flex-wrap">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <PriceInfoCard
                                 title="Current Price"
                                 iconSrc="/assets/icons/price-tag.svg"
                                 value={`${product.currency} ${formatNumber(product.currentPrice)}`}
                             />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <PriceInfoCard
                                 title="Average Price"
                                 iconSrc="/assets/icons/chart.svg"
                                 value={`${product.currency} ${formatNumber(product.averagePrice)}`}
                             />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <PriceInfoCard
                                 title="Highest Price"
                                 iconSrc="/assets/icons/arrow-up.svg"
                                 value={`${product.currency} ${formatNumber(product.highestPrice)}`}
                             />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <PriceInfoCard
                                 title="Lowest Price"
                                 iconSrc="/assets/icons/arrow-down.svg"
