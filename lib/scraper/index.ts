@@ -59,6 +59,16 @@ export async function scrapeAmazonProduct(url: string) {
     const discountRate = $(".savingsPercentage").text().replace(/[-%]/g, "");
 
     const description = extractDescription($);
+    const categoryText = $(".a-color-secondary.a-size-base.prodDetSectionEntry")
+      .next("td") // Get the next sibling td
+      .find("span") // Find all span elements within the td
+      .text()
+      .trim();
+
+    const categoryMatch = categoryText.match(/See Top 100 in (.+?)\)/);
+    const category = categoryMatch ? categoryMatch[1] : "";
+
+    console.log("Category:", category);
 
     const reviewsCountText = $("#acrCustomerReviewText").text().trim();
     const firstWord = reviewsCountText.split(" ")[0];
@@ -77,7 +87,7 @@ export async function scrapeAmazonProduct(url: string) {
       originalPrice: Number(originalPrice) || Number(currentPrice),
       priceHistory: [],
       discountRate: Number(discountRate),
-      category: "category",
+      category: category,
       reviewsCount: reviewsCount,
       stars: 4.5,
       isOutOfStock: outOfStock,
