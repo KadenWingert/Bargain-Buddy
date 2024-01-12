@@ -95,7 +95,7 @@ const Modal = ({ productId }: Props) => {
                                     </p>
                                 </div>
 
-                                <form className="flex flex-col mt-5" onSubmit={handleSubmit}>
+                                <form autoComplete='off' className="flex flex-col mt-5" onSubmit={handleSubmit}>
                                     <label htmlFor="email" className="text-sm font-medium text-gray-700">
                                         Email address
                                     </label>
@@ -115,6 +115,7 @@ const Modal = ({ productId }: Props) => {
                                             onChange={(e) => setEmail(e.target.value)}
                                             placeholder="Enter your email address"
                                             className='dialog-input'
+                                            autoComplete='email'
                                         />
                                     </div>
 

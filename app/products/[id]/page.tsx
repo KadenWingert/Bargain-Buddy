@@ -14,8 +14,10 @@ type Props = {
 
 const ProductDetails = async ({ params: { id } }: Props) => {
     const product: Product = await getProductById(id);
-    { console.log("PRODUCT URL" + product.url) }
-    { console.log("PRODUCT Review count" + product.reviewsCount) }
+    // console.log("PRODUCT URL", product.url);
+    // console.log("PRODUCT Review count", product.reviewsCount);
+    // console.log("PRODUCT URL TEST");
+
 
     if (!product) redirect('/')
 

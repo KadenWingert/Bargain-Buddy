@@ -56,6 +56,8 @@ const Searchbar = () => {
                 onChange={(e) => setSearchPrompt(e.target.value)}
                 placeholder="Enter product link"
                 className="searchbar-input"
+                id="productLink"
+                autoComplete="url"
             />
 
             <button
