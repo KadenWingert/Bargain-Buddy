@@ -68,14 +68,14 @@ export async function scrapeAmazonProduct(url: string) {
     const categoryMatch = categoryText.match(/See Top 100 in (.+?)\)/);
     const category = categoryMatch ? categoryMatch[1] : "";
 
-    console.log("Category:", category);
-
     const reviewsCountText = $("#acrCustomerReviewText").text().trim();
     const firstWord = reviewsCountText.split(" ")[0];
     const reviewsCount = parseInt(
       firstWord.replace(/\D/g, ""),
       10
     ).toLocaleString();
+
+    const stars = $("#averageCustomerReviews").text().trim().split(" ")[0];
 
     // Construct data object with scraped information
     const data = {
@@ -89,7 +89,7 @@ export async function scrapeAmazonProduct(url: string) {
       discountRate: Number(discountRate),
       category: category,
       reviewsCount: reviewsCount,
-      stars: 4.5,
+      stars: stars,
       isOutOfStock: outOfStock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),

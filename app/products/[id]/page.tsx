@@ -1,6 +1,7 @@
 import Modal from "@/components/Modal";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
+import StarRating from "@/components/StarRating";
 import { getProductById, getSimilarProducts } from "@/lib/actions"
 import { formatNumber } from "@/lib/utils";
 import { Product } from "@/types";
@@ -96,15 +97,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                         <div className="flex flex-col gap-4">
                             <div className="flex gap-3">
                                 <div className="product-stars">
-                                    <Image
-                                        src="/assets/icons/star.svg"
-                                        alt="star"
-                                        width={16}
-                                        height={16}
-                                    />
-                                    <p className="text-sm text-primary-orange font-semibold">
-                                        {product.stars || '25'}
-                                    </p>
+                                    <StarRating stars={parseFloat(product.stars)} />
                                 </div>
 
                                 <div className="product-reviews">
@@ -115,7 +108,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                                         height={16}
                                     />
                                     <p className="text-sm text-secondary font-semibold">
-                                        {product.reviewsCount} Reviews
+                                        {product.reviewsCount} Ratings
                                     </p>
                                 </div>
                             </div>
