@@ -20,7 +20,7 @@ const Home = async () => {
                 alt="arrow-right"
                 height={0}
                 width={0}
-                style={{ width: '16px', height: "auto"}}
+                style={{ width: '16px', height: "auto" }}
               />
             </p>
 
@@ -30,7 +30,7 @@ const Home = async () => {
             </h1>
 
             <p className="mt-6">
-              Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.
+              Unlock savings effortlessly - notifications that turn your wish list into a shopping spree
             </p>
 
             <Searchbar />
@@ -44,9 +44,10 @@ const Home = async () => {
         <h2 className="section-text">Trending</h2>
 
         <div className="flex flex-wrap gap-x-8 gap-y-16">
-          {allProducts?.map((product) => (
+          {allProducts?.slice().reverse().map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
+
         </div>
       </section>
     </>
