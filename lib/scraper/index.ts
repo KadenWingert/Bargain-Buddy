@@ -76,6 +76,11 @@ export async function scrapeAmazonProduct(url: string) {
     ).toLocaleString();
 
     const stars = $("#averageCustomerReviews").text().trim().split(" ")[0];
+    const reccommendedCount = $(
+      "#socialProofingAsinFaceout_feature_div span span"
+    )
+      .text()
+      .trim();
 
     // Construct data object with scraped information
     const data = {
@@ -90,6 +95,7 @@ export async function scrapeAmazonProduct(url: string) {
       category: category,
       reviewsCount: reviewsCount,
       stars: stars,
+      reccommendedCount: reccommendedCount,
       isOutOfStock: outOfStock,
       description,
       lowestPrice: Number(currentPrice) || Number(originalPrice),

@@ -7,6 +7,7 @@ interface StarRatingProps {
 }
 
 const StarRating: React.FC<StarRatingProps> = ({ stars }) => {
+
     const filledStars = Math.floor(stars);
     const hasHalfStar = stars % 1 !== 0;
     const emptyStars = Math.floor(5 - stars);

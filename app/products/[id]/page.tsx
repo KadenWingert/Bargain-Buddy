@@ -51,18 +51,21 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                         </div>
 
                         <div className="flex items-center gap-3">
-                            <div className="product-hearts">
-                                <Image
-                                    src="/assets/icons/red-heart.svg"
-                                    alt="heart"
-                                    width={20}
-                                    height={20}
-                                />
+                            {/* {product.reviewsCount != "NaN" ?
+                                <div className="product-hearts">
+                                    <Image
+                                        src="/assets/icons/red-heart.svg"
+                                        alt="heart"
+                                        width={20}
+                                        height={20}
+                                    />
 
-                                <p className="text-base font-semibold text-[#D46F77]">
-                                    {product.reviewsCount}
-                                </p>
-                            </div>
+                                    <p className="text-base font-semibold text-[#D46F77]">
+                                        {product.reviewsCount}
+                                    </p>
+                                </div>
+                                : ""
+                            } */}
 
                             <div className="p-2 bg-white-200 rounded-10">
                                 <Image
@@ -96,26 +99,28 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
                         <div className="flex flex-col gap-4">
                             <div className="flex gap-3">
-                                <div className="product-stars">
-                                    <StarRating stars={parseFloat(product.stars)} />
-                                </div>
-
-                                <div className="product-reviews">
-                                    <Image
-                                        src="/assets/icons/comment.svg"
-                                        alt="comment"
-                                        width={16}
-                                        height={16}
-                                    />
-                                    <p className="text-sm text-secondary font-semibold">
-                                        {product.reviewsCount} Ratings
-                                    </p>
-                                </div>
+                                {product.stars &&
+                                    <div className="product-stars">
+                                        <StarRating stars={parseFloat(product.stars)} />
+                                    </div>
+                                }
+                                {product.reviewsCount != "NaN" ?
+                                    <div className="product-reviews">
+                                        <Image
+                                            src="/assets/icons/comment.svg"
+                                            alt="comment"
+                                            width={16}
+                                            height={16}
+                                        />
+                                        <p className="text-sm text-secondary font-semibold">
+                                            {product.reviewsCount} Ratings
+                                        </p>
+                                    </div>
+                                    : ""}
                             </div>
 
                             <p className="text-sm text-black opacity-50">
-                                <span className="text-primary-green font-semibold">93% </span> of
-                                buyers have recommeded this.
+                                <span className="text-primary-blue font-semibold">{product.reccommendedCount}</span>
                             </p>
                         </div>
                     </div>
@@ -171,8 +176,8 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                         width={22}
                         height={22}
                     />
-
-                    <Link href={product.url} className="text-base text-white">
+                    <Link
+                        href={product.url} className="text-base text-white" target="_blank" >
                         Buy Now
                     </Link>
                 </button>
